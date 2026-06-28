@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fdf8f0;
+  --foreground: #1a0a00;
+  --primary: #8b1a1a;
+  --primary-light: #c0392b;
+  --gold: #c8a84b;
+  --gold-light: #f0d060;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Noto Serif KR', 'Malgun Gothic', serif;
+}
+
+.hanja {
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 700;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in { animation: fadeIn 0.5s ease-out; }
