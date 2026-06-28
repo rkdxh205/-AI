@@ -109,7 +109,7 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
           {[
             { icon: '🔮', title: '정확한 사주 계산', desc: '전통 만세력 알고리즘으로 사주팔자를 정확히 계산합니다.' },
-            { icon: '🤖', title: 'AI 상세 풀이', desc: 'Claude AI가 성격, 직업운, 연애운, 건강 등을 상세히 분석합니다.' },
+            { icon: '🤖', title: 'AI 상세 풀이', desc: 'AI가 성격, 직업운, 연애운, 건강 등을 상세히 분석합니다.' },
             { icon: '💑', title: '궁합 & 운세', desc: '두 사람의 궁합 분석과 오늘의 운세도 확인하세요.' },
           ].map(({ icon, title, desc }) => (
             <div key={title} className="bg-amber-50 border border-amber-200 rounded-xl p-5 text-center">

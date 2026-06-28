@@ -108,32 +108,44 @@ export default function SajuForm({ onSubmit, loading }: Props) {
         </div>
         <div className="grid grid-cols-3 gap-2">
           <input
-            type="number"
+            type="text"
+            inputMode="numeric"
+            pattern="[0-9]*"
             placeholder="년도 (예: 1990)"
             value={form.birthYear}
-            onChange={(e) => setForm({ ...form, birthYear: e.target.value })}
-            min={1900}
-            max={2025}
+            onChange={(e) => {
+              const val = e.target.value.replace(/\D/g, '').slice(0, 4);
+              setForm({ ...form, birthYear: val });
+            }}
+            maxLength={4}
             required
             className={inputCls}
           />
           <input
-            type="number"
+            type="text"
+            inputMode="numeric"
+            pattern="[0-9]*"
             placeholder="월 (1-12)"
             value={form.birthMonth}
-            onChange={(e) => setForm({ ...form, birthMonth: e.target.value })}
-            min={1}
-            max={12}
+            onChange={(e) => {
+              const val = e.target.value.replace(/\D/g, '').slice(0, 2);
+              setForm({ ...form, birthMonth: val });
+            }}
+            maxLength={2}
             required
             className={inputCls}
           />
           <input
-            type="number"
+            type="text"
+            inputMode="numeric"
+            pattern="[0-9]*"
             placeholder="일 (1-31)"
             value={form.birthDay}
-            onChange={(e) => setForm({ ...form, birthDay: e.target.value })}
-            min={1}
-            max={31}
+            onChange={(e) => {
+              const val = e.target.value.replace(/\D/g, '').slice(0, 2);
+              setForm({ ...form, birthDay: val });
+            }}
+            maxLength={2}
             required
             className={inputCls}
           />
