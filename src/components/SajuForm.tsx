@@ -107,48 +107,39 @@ export default function SajuForm({ onSubmit, loading }: Props) {
           </label>
         </div>
         <div className="grid grid-cols-3 gap-2">
-          <input
-            type="text"
-            inputMode="numeric"
-            pattern="[0-9]*"
-            placeholder="년도 (예: 1990)"
+          <select
             value={form.birthYear}
-            onChange={(e) => {
-              const val = e.target.value.replace(/\D/g, '').slice(0, 4);
-              setForm({ ...form, birthYear: val });
-            }}
-            maxLength={4}
+            onChange={(e) => setForm({ ...form, birthYear: e.target.value })}
             required
             className={inputCls}
-          />
-          <input
-            type="text"
-            inputMode="numeric"
-            pattern="[0-9]*"
-            placeholder="월 (1-12)"
+          >
+            <option value="">년도</option>
+            {Array.from({ length: 2025 - 1930 + 1 }, (_, i) => 2025 - i).map((y) => (
+              <option key={y} value={y}>{y}년</option>
+            ))}
+          </select>
+          <select
             value={form.birthMonth}
-            onChange={(e) => {
-              const val = e.target.value.replace(/\D/g, '').slice(0, 2);
-              setForm({ ...form, birthMonth: val });
-            }}
-            maxLength={2}
+            onChange={(e) => setForm({ ...form, birthMonth: e.target.value })}
             required
             className={inputCls}
-          />
-          <input
-            type="text"
-            inputMode="numeric"
-            pattern="[0-9]*"
-            placeholder="일 (1-31)"
+          >
+            <option value="">월</option>
+            {Array.from({ length: 12 }, (_, i) => i + 1).map((m) => (
+              <option key={m} value={m}>{m}월</option>
+            ))}
+          </select>
+          <select
             value={form.birthDay}
-            onChange={(e) => {
-              const val = e.target.value.replace(/\D/g, '').slice(0, 2);
-              setForm({ ...form, birthDay: val });
-            }}
-            maxLength={2}
+            onChange={(e) => setForm({ ...form, birthDay: e.target.value })}
             required
             className={inputCls}
-          />
+          >
+            <option value="">일</option>
+            {Array.from({ length: 31 }, (_, i) => i + 1).map((d) => (
+              <option key={d} value={d}>{d}일</option>
+            ))}
+          </select>
         </div>
       </div>
 

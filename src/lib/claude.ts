@@ -5,7 +5,7 @@ const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 const MODEL = 'gpt-4o';
 
-function buildChartDescription(chart: SajuChart, name?: string, gender?: string): string {
+function buildChartDescription(chart: SajuChart, _name?: string, gender?: string): string {
   const genderStr = gender === 'male' ? '남성' : '여성';
   const hourStr = chart.hourPillar
     ? `${chart.hourPillar.stemChar}${chart.hourPillar.branchChar}(${chart.hourPillar.heavenlyStem}${chart.hourPillar.earthlyBranch})`
@@ -20,7 +20,7 @@ function buildChartDescription(chart: SajuChart, name?: string, gender?: string)
     : '대운 정보 없음';
 
   return `
-이름: ${name || '미기재'} / 성별: ${genderStr}
+성별: ${genderStr}
 
 사주원국:
 - 년주: ${chart.yearPillar.stemChar}${chart.yearPillar.branchChar} (${chart.yearPillar.heavenlyStem}${chart.yearPillar.earthlyBranch}, ${chart.yearPillar.element} ${chart.yearPillar.yinYang})
