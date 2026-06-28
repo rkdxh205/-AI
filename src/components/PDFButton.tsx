@@ -14,7 +14,7 @@ export default function PDFButton({ targetId, filename }: Props) {
     setLoading(true);
     try {
       const { default: html2canvas } = await import('html2canvas');
-      const { default: jsPDF } = await import('jspdf');
+      const { jsPDF } = await import('jspdf');
 
       const element = document.getElementById(targetId);
       if (!element) return;
